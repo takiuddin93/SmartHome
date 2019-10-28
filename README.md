@@ -1,6 +1,6 @@
 # smarthome
 
-A new Flutter project.
+A SmartHome App project based on Flutter.
 
 ## Getting Started
 
