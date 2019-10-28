@@ -101,7 +101,6 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                 ),
               ),
             ),
-            // Dashboard
             Positioned(
               top: media.height * .06,
               width: media.width,
@@ -120,6 +119,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                 ),
               ),
             ),
+            // Dashboard
             Positioned(
               top: media.height * .15,
               height: (media.height * .5),
