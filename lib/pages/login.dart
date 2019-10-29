@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:smarthome/pages/room_details.dart';
+import 'package:smarthome/pages/dashboard.dart';
 import 'package:smarthome/pages/signup.dart';
 
 Color mediumspringgreen = Color(0xFF26D07C);
@@ -265,7 +265,7 @@ class _LoginPageState extends State<LoginPage> {
                       )
                     ),
                     onTap:(){
-                      gotoRoomDetails();
+                      gotoDashboard();
                     }
                   )
                 ),
@@ -316,10 +316,10 @@ class _LoginPageState extends State<LoginPage> {
       return new Signup();
     }));
   }
-  gotoRoomDetails() {
+  gotoDashboard() {
     Navigator.of(context)
         .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
-      return new RoomDetails();
+      return new Dashboard();
     }));
   }
 }

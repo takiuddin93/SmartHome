@@ -3,6 +3,12 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
+
+import 'package:smarthome/pages/temperature_control.dart';
+import 'package:smarthome/pages/humidity_control.dart';
+
+import 'package:smarthome/pages/room_details.dart';
+
 import 'package:smarthome/utils/top_curve_clipper.dart';
 import 'package:smarthome/utils/bottom_bar.dart';
 
@@ -109,14 +115,7 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
                   horizontal: 18,
                   vertical: 20,
                 ),
-                child: Container(
-                  height: 60,
-                  child: Column(
-                    children: <Widget>[
-                      buildDashboardRow(),
-                    ],
-                  ),
-                ),
+                child: buildDashboardRow(),
               ),
             ),
             // Dashboard
@@ -173,135 +172,149 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
     );
   }
   Widget buildDashboardRow() {
-    return Expanded(
+    return Container(
+      height: 60,
       child: Row(
         children: <Widget>[
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: ExactAssetImage('assets/images/temperature.png'),
-                        fit: BoxFit.contain,
+            child: GestureDetector(
+              onTap:(){
+                gotoTempControl();
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 50,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: ExactAssetImage('assets/images/temperature.png'),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "19 °C",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "19 °C",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Temp",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                          Text(
+                            "Temp",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: ExactAssetImage('assets/images/humidity.png'),
-                        fit: BoxFit.contain,
+            child: GestureDetector(
+              onTap:(){
+                gotoHumidityControl();
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 50,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: ExactAssetImage('assets/images/humidity.png'),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "76 %",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "76 %",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Humid",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                          Text(
+                            "Humid",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
-            ),
+            )
           ),
           Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    width: 50,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: ExactAssetImage('assets/images/front-door.png'),
-                        fit: BoxFit.contain,
+            child: GestureDetector(
+              onTap: () => print("Door pressed"),
+              child: Padding(
+                padding: const EdgeInsets.all(10),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      width: 50,
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: ExactAssetImage('assets/images/front-door.png'),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(width: 10),
-                  Expanded(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text(
-                          "Locked",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                    SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Text(
+                            "Locked",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                        Text(
-                          "Door",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 14,
+                          Text(
+                            "Door",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              fontSize: 14,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
@@ -316,62 +329,67 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
         children: <Widget>[
           Expanded(
             flex: 5,
-            child: Container(
-              height: media.height * .5,
-              width: media.width * .5,
-              decoration: BoxDecoration(
-                color: Color(0xFFF5F5F1),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [
-                  new BoxShadow(
-                    color: Color(0x29000000),
-                    offset: new Offset(0.0, 4.0),
-                    blurRadius: 16.0
-                  )
-                ],
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: Row(
-                  children: <Widget>[
-                    Expanded(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Text(
-                            "Bed Room",
-                            style: TextStyle(
-                              color: Color(0xFF465062),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                            ),
-                          ),
-                          Text(
-                            "No Occupant",
-                            style: TextStyle(
-                              color: Color(0xFFDBE2E9),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                            ),
-                          ),
-                          Text(
-                            "5 Devices Active",
-                            style: TextStyle(
-                              color: Color(0xFF465062),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 16,
-                            ),
-                          ),
-                          CupertinoSwitch(
-                            onChanged: (bool value) {},
-                            value: true,
-                            activeColor: Color(0xFF26D07C),
-                          ),
-                        ],
-                      ),
-                    ),
+            child: GestureDetector(
+              onTap:(){
+                gotoRoomDetails();
+              },
+              child: Container(
+                height: media.height * .5,
+                width: media.width * .5,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF5F5F1),
+                  borderRadius: BorderRadius.circular(10),
+                  boxShadow: [
+                    new BoxShadow(
+                      color: Color(0x29000000),
+                      offset: new Offset(0.0, 4.0),
+                      blurRadius: 16.0
+                    )
                   ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(10),
+                  child: Row(
+                    children: <Widget>[
+                      Expanded(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text(
+                              "Bed Room",
+                              style: TextStyle(
+                                color: Color(0xFF465062),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              "No Occupant",
+                              style: TextStyle(
+                                color: Color(0xFFDBE2E9),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                            Text(
+                              "5 Devices Active",
+                              style: TextStyle(
+                                color: Color(0xFF465062),
+                                fontWeight: FontWeight.w400,
+                                fontSize: 16,
+                              ),
+                            ),
+                            CupertinoSwitch(
+                              onChanged: (bool value) {},
+                              value: true,
+                              activeColor: Color(0xFF26D07C),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -584,5 +602,26 @@ class _DashboardPageState extends State<DashboardPage> with SingleTickerProvider
         ],
       ),
     );
+  }
+  
+  gotoTempControl() {
+    Navigator.of(context)
+        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+      return new TemperatureControl();
+    }));
+  }
+
+  gotoHumidityControl() {
+    Navigator.of(context)
+        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+      return new HumidityControl();
+    }));
+  }
+
+  gotoRoomDetails() {
+    Navigator.of(context)
+        .push(MaterialPageRoute<Null>(builder: (BuildContext context) {
+      return new RoomDetails();
+    }));
   }
 }
