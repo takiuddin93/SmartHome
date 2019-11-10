@@ -12,6 +12,7 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="SmartHome"
+        android:usesCleartextTraffic="true"
         android:icon="@drawable/ic_smarthome_icon"
         tools:ignore="AllowBackup,GoogleAppIndexingWarning">
         <activity
