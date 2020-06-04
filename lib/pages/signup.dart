@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:smarthome/main.dart';
 import 'package:smarthome/pages/login.dart';
 import 'package:smarthome/pages/dashboard.dart';
-import 'package:polygon_clipper/polygon_clipper.dart';
 
 import 'package:smarthome/utils/hexagon_button.dart';
 

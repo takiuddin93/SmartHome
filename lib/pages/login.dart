@@ -138,7 +138,10 @@ class _LoginPageState extends State<LoginPage> {
                             TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.mail),
-                                // labelText: "email",
+                                labelText: "email",
+                                labelStyle: TextStyle(
+                                  color: mediumspringgreen,
+                                ),
                                 hintText: "email",
                                 fillColor: Colors.transparent,
                                 enabledBorder: OutlineInputBorder(
@@ -191,7 +194,10 @@ class _LoginPageState extends State<LoginPage> {
                             TextFormField(
                               decoration: InputDecoration(
                                 prefixIcon: Icon(Icons.lock),
-                                // labelText: "password",
+                                labelText: "password",
+                                labelStyle: TextStyle(
+                                  color: mediumspringgreen,
+                                ),
                                 hintText: "password",
                                 fillColor: Colors.transparent,
                                 enabledBorder: OutlineInputBorder(
